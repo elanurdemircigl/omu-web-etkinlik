@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>OMÜ Etkinlik Başvuru Formu</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 20px auto; padding: 20px; background-color: lightcyan; }
+        form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        fieldset { border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px; }
+        legend { font-weight: bold; color: blue; padding: 0 10px; }
+        div { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="date"], input[type="time"], select, textarea {
+            width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;}.help-text { font-size: 0.8em; color: #666; }
+    </style>
+</head>
+<body>
+    <h1 style="color: rgb(0, 0, 105)">OMÜ Etkinlik Başvuru Formu</h1>
+    <p>Bu form, Ondokuz Mayıs Üniversitesi bünyesinde düzenlenecek teknoloji etkinliklerine katılım sağlamak isteyen öğrenciler için hazırlanmıştır.</p>
+    <form action="https://webhook.site/fd67e440-7892-450c-a1e8-521d96814af6" method="POST" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Kişisel Bilgiler</legend>
+            <div>
+                <label for="adSoyad">Ad Soyad:</label>
+                <input type="text" id="adSoyad" name="adSoyad" required minlength="5" placeholder="Örn: Elanur Demircioğlu">
+                <span class="help-text">Lütfen tam adınızı giriniz.</span>
+            </div>
+            <div>
+                <label for="ogrenciNo">Öğrenci No:</label>
+                <input type="text" id="ogrenciNo" name="ogrenciNo" required pattern="\d{8,10}" title="8-10 haneli rakam giriniz.">
+            </div>
+            <div>
+                <label for="email">E-posta:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="tel">Telefon:</label>
+                <input type="tel" id="tel" name="tel" pattern="05[0-9]{9}" placeholder="05XXXXXXXXX">
+            </div>
+            <div>
+                <label for="dogumTarihi">Doğum Tarihi:</label>
+                <input type="date" id="dogumTarihi" name="dogumTarihi">
+            </div>
+            <div>
+                <label for="linkedin">LinkedIn / Web Sitesi:</label>
+                <input type="url" id="linkedin" name="linkedin">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Etkinlik ve Tercihler</legend>
+            <div>
+                <label for="oturum">Katılmak İstediğiniz Oturum:</label>
+                <select id="oturum" name="oturum">
+                    <optgroup label="Yazılım Geliştirme">
+                        <option value="web">Web Geliştirme</option>
+                        <option value="mobil">Mobil Geliştirme (Flutter)</option>
+                    </optgroup>
+                    <optgroup label="Gelecek Teknolojileri">
+                        <option value="ai">Yapay Zeka</option>
+                        <option value="siber">Siber Güvenlik</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div>
+                <label>Katılım Tipi:</label>
+                <input type="radio" id="yuzyuze" name="katilimTipi" value="yuzyuze"> <label style="display:inline" for="yuzyuze">Yüz yüze</label>
+                <input type="radio" id="online" name="katilimTipi" value="online"> <label style="display:inline" for="online">Online</label>
+            </div>
+            <div>
+                <label>İlgilendiğiniz Teknolojiler:</label>
+                <input type="checkbox" name="tech" value="flutter"> Flutter
+                <input type="checkbox" name="tech" value="java"> Java
+                <input type="checkbox" name="tech" value="sql"> SQL
+                <input type="checkbox" name="tech" value="python"> Python
+                <input type="checkbox" name="tech" value="react"> React
+            </div>
+            <div>
+                <label for="motivasyon">Katılım Motivasyonu:</label>
+                <textarea id="motivasyon" name="motivasyon" rows="4" maxlength="500" required></textarea>
+                <span class="help-text">Neden bu etkinliğe katılmak istediğinizi kısaca açıklayınız (max 500 karakter).</span>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Ek Bilgiler</legend>
+            <div>
+                <label for="cv">CV Yükleme (.pdf, .doc, .docx):</label>
+                <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx">
+            </div>
+            <div>
+                <label for="gano">Not Ortalaması (GANO): <span id="ganoDeger">2.0</span></label>
+                <input type="range" id="gano" name="gano" min="0" max="4" step="0.01" value="2.0" oninput="document.getElementById('ganoDeger').innerText = this.value">
+            </div>
+            <div>
+                <label for="saat">Görüşme Uygunluk Saati:</label>
+                <input type="time" id="saat" name="saat">
+            </div>
+            <div>
+                <input type="checkbox" id="kvkk" name="kvkk" required>
+                <label style="display:inline" for="kvkk">KVKK Metnini okudum, onaylıyorum.</label>
+            </div>
+        </fieldset>
+        <button type="submit" style="padding: 10px 20px; cursor:pointer;">Başvuruyu Tamamla</button>
+    </form>
+    <footer style="margin-top: 20px; font-size: 0.8em; border-top: 1px solid #ccc; padding-top: 10px;">
+        <p><strong>KVKK Bilgilendirmesi:</strong> Paylaştığınız veriler sadece etkinlik organizasyonu için kullanılacaktır.</p>
+    </footer>
+</body>
+</html>
