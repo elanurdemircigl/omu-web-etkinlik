@@ -6,5 +6,4 @@ Bu sayede form verilerinin yapılandırılmış bir formatta (JSON) sunucuya ula
 ## Kullanılan Teknolojiler
 
 - **HTML5:** Sayfa yapısı ve form bileşenleri.
-- **JavaScript:** Dinamik GANO değer gösterimi.
-- **Webhook.site / Httpbin.org:** Form verilerinin test edilmesi ve JSON çıktılarının analizi.
+- **Webhook.site:** Form verilerinin test edilmesi ve JSON çıktılarının analizi.
